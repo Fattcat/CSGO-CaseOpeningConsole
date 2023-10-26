@@ -1,10 +1,20 @@
-import random
+import os as vycistiMa
 
 # Zoznam skinov s menami a prislusnymi percentualnymi sancami
 skins = [
     {"meno": "AK-47 | Bloodsport", "sance": 1},
-    {"meno": "M4A1-S | Knight", "sance": 2},
-    {"meno": "AWP | Dragon Lore", "sance": 0.1},
+    {"meno": "M4A1-S | Knight", "sance": 1},
+    {"meno": "AWP | Dragon Lore", "sance": 0.2},
+    {"meno":"M4A4 | Temukau","sance":1},
+    {"meno":"AK-47 | Head Shot","sance":1},
+    {"meno":"P2000 | Wicked Sick","sance":1},
+    {"meno":"AWP | Duality","sance":1},
+    {"meno":"UMP-45 | Wild Child","sance":1},
+    {"meno":"P90 | Neoqueen","sance":1},
+    {"meno":"M4A1-S | Emphorosaur-S","sance":1},
+    {"meno":"MAC-10 | Sakkaku","sance":1},
+    {"meno":"R8 Revolver | Banana Cannon","sance":1},
+    {"meno":"MP5-SD | Liquidation","sance":1},
     # Pridajte ďalšie skiny s menami a percentuálnymi šancami
 ]
 
