@@ -1,33 +1,54 @@
-import os as vycistiMa
+import random
+import time
+from termcolor import colored
+import os
 
-# Zoznam skinov s menami a prislusnymi percentualnymi sancami
+os.system("clear")
+
+red = "\033[91m"
+yellow = "\033[93m"
+gold = "\033[33m"
+blue = "\033[94m"  # Farba modrej
+reset = "\033[0m"
+
+def CaseOpening():
+    print("+" + "-"*40 + " " + "+")
+    print("Dominikov Case Otvárač Simulator")
+    print("+" + "-"*40 + " " + "+")
+    print("Started opening '10' Cases ...")
+
+CaseOpening()
+time.sleep(0.2)                                                                                                                                         
 skins = [
-    {"meno": "AK-47 | Bloodsport", "sance": 1},
-    {"meno": "M4A1-S | Knight", "sance": 1},
-    {"meno": "AWP | Dragon Lore", "sance": 0.2},
-    {"meno":"M4A4 | Temukau","sance":1},
-    {"meno":"AK-47 | Head Shot","sance":1},
-    {"meno":"P2000 | Wicked Sick","sance":1},
-    {"meno":"AWP | Duality","sance":1},
-    {"meno":"UMP-45 | Wild Child","sance":1},
-    {"meno":"P90 | Neoqueen","sance":1},
-    {"meno":"M4A1-S | Emphorosaur-S","sance":1},
-    {"meno":"MAC-10 | Sakkaku","sance":1},
-    {"meno":"R8 Revolver | Banana Cannon","sance":1},
-    {"meno":"MP5-SD | Liquidation","sance":1},
+    {"meno": f"{red}AK-47 | Bloodsport{reset}", "sance": 15},
+    {"meno": f"{blue}M4A1-S | Knight{reset}", "sance": 6},
+    {"meno": f"{gold}AWP | Dragon Lore{reset}", "sance": 22},
+    {"meno": f"{yellow}M4A4 | Howl{reset}", "sance": 20},
+    {"meno": f"{blue}AK-47 | Head Shot{reset}", "sance": 19},
+    {"meno": f"{blue}P2000 | Wicked Sick{reset}", "sance": 21},
+    {"meno": f"{blue}AWP | Duality{reset}", "sance": 13},
+    {"meno": f"{blue}UMP-45 | Wild Child{reset}", "sance": 6},
+    {"meno": f"{blue}P90 | Neoqueen{reset}", "sance": 18},
+    {"meno": f"{blue}M4A1-S | Emphorosaur-S{reset}", "sance": 16},
+    {"meno": f"{blue}MAC-10 | Sakkaku{reset}", "sance": 10},
+    {"meno": f"{blue}R8 Revolver | Banana Cannon{reset}", "sance": 10},
+    {"meno": f"{blue}MP5-SD | Liquidation{reset}", "sance": 20}
     # Pridajte ďalšie skiny s menami a percentuálnymi šancami
 ]
 
-# Funkcia pre náhodný výber skinu
-def nahodny_skin(skins):
-    sance = [skin["sance"] for skin in skins]
-    vybrany_skin = random.choices(skins, weights=sance, k=1)[0]
-    return vybrany_skin
+# Celková šanca všetkých skinov
+celkova_sanca = sum(skin["sance"] for skin in skins)
 
-# Volanie funkcie pre získanie náhodného skinu
-vygenerovany_skin = nahodny_skin(skins)
+for i in range(99):
+    akt_skins = skins.copy()
+    vygenerovane_skiny = []
 
-# Výpis náhodneho skinu
-print(f"Vygenerovaný náhodný skin: {vygenerovany_skin['meno']}")
+    while celkova_sanca > 0:
+        nahodny_skin = random.choice(akt_skins)
+        if random.random() * 100 < nahodny_skin["sance"]:
+            vygenerovane_skiny.append(nahodny_skin)
+            celkova_sanca -= nahodny_skin["sance"]
 
-# Sem môžete pridať kód na otvorenie CS:GO Fracture Bedne
+    for vygenerovany_skin in vygenerovane_skiny:
+        time.sleep(1)
+        vypis = f"Vygenerovaný náhodný skin: {colored(vygenerovany_skin['meno'], 'white')}"
