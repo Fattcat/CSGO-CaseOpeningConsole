@@ -12,18 +12,19 @@ blue = "\033[94m"  # Farba modrej
 reset = "\033[0m"
 
 def CaseOpening():
-    print("+" + "-"*40 + " " + "+")
-    print("Dominikov Case Otvárač Simulator")
-    print("+" + "-"*40 + " " + "+")
+    print("+" + "-"*27 + "+")
+    print("CSGO Case Opening Simulator")
+    print("+" + "-"*27 + "+\n")
     print("Started opening '10' Cases ...")
 
 CaseOpening()
-time.sleep(0.2)                                                                                                                                         
+time.sleep(0.2)
+
 skins = [
     {"meno": f"{red}AK-47 | Bloodsport{reset}", "sance": 15},
     {"meno": f"{blue}M4A1-S | Knight{reset}", "sance": 6},
-    {"meno": f"{gold}AWP | Dragon Lore{reset}", "sance": 22},
-    {"meno": f"{yellow}M4A4 | Howl{reset}", "sance": 20},
+    {"meno": f"{gold}AWP | Dragon Lore{reset}", "sance": 2},  # Zmenená šanca na 2
+    {"meno": f"{yellow}M4A4 | Howl{reset}", "sance": 3},  # Zmenená šanca na 3
     {"meno": f"{blue}AK-47 | Head Shot{reset}", "sance": 19},
     {"meno": f"{blue}P2000 | Wicked Sick{reset}", "sance": 21},
     {"meno": f"{blue}AWP | Duality{reset}", "sance": 13},
@@ -52,3 +53,4 @@ for i in range(99):
     for vygenerovany_skin in vygenerovane_skiny:
         time.sleep(1)
         vypis = f"Vygenerovaný náhodný skin: {colored(vygenerovany_skin['meno'], 'white')}"
+        print(vypis)
